@@ -8,6 +8,7 @@
             public MainViewModel Main
             {
                 get;
+            // Modificado en DMS
                 set;
             }
             #endregion
