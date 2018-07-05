@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Cesar_xamarin.ViewModels
 {
-    public class LoginVIewModel : INotifyPropertyChanged
+    public class LoginVIewModel : BaseViewModel
     {
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,37 +30,13 @@ namespace Cesar_xamarin.ViewModels
         }
         public string Password
         {
-            get
-            {
-                return password;
-            }
-            set
-            {
-                if (this.password != value)
-                {
-                    this.password = value;
-                    PropertyChanged?.Invoke(
-                        this,
-                        new PropertyChangedEventArgs(nameof(this.Password)));
-                }
-            }
+            get { return this.password; }
+            set { SetValue(ref this.password, value); }
         }
         public bool IsRuning
         {
-            get
-            {
-                return this.isRuning;
-            }
-            set
-            {
-                if (this.isRuning != value)
-                {
-                    this.isRuning = value;
-                    PropertyChanged?.Invoke(
-                        this,
-                        new PropertyChangedEventArgs(nameof(this.IsRuning)));
-                }
-            }
+            get { return this.isRuning; }
+            set { SetValue(ref this.isRuning, value); }
         }
         public bool IsRemembered
         {
@@ -69,20 +45,8 @@ namespace Cesar_xamarin.ViewModels
         }
         public bool IsEnabled
         {
-            get
-            {
-                return this.isEnabled;
-            }
-            set
-            {
-                if (this.isEnabled != value)
-                {
-                    this.isEnabled = value;
-                    PropertyChanged?.Invoke(
-                        this,
-                        new PropertyChangedEventArgs(nameof(this.IsEnabled)));
-                }
-            }
+            get { return this.isEnabled; }
+            set { SetValue(ref this.isEnabled, value); }
         }
         public ICommand LoginCommand
         {
@@ -117,7 +81,7 @@ namespace Cesar_xamarin.ViewModels
             this.IsRuning = true;
             this.IsEnabled = false;
 
-            if (this.Email != "cessar_4@hotmail.com" && this.Password != "102")
+            if (this.Email != "cessar_4@hotmail.com" || this.Password != "102")
             {
                 this.IsRuning = false;
                 this.IsEnabled= true;
