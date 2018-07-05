@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cesar_xamarin.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Login">
+             Title="Forms Principal">
     <ContentPage.Content>
         <ScrollView BindingContext="{Binding Login}">
             <StackLayout 
@@ -24,49 +24,70 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="0"
+                        VerticalOptions="Center"
                         Text="E-mail"/>
                     <Entry
                         Grid.Row="0"
                         Grid.Column="1"
+                        Text="{Binding Email, Mode=TwoWay}"
                         Keyboard="Email"
                         Placeholder="Enter your Email..."/>
                     <Label
                         Grid.Row="1"
+                        VerticalOptions="Center"
                         Grid.Column="0"
                         Text="Password"/>
                     <Entry
                         Grid.Row="1"
                         Grid.Column="1"
+                        Text="{Binding password, Mode=TwoWay}"
                         IsPassword="True"
                         Placeholder="Enter your password..."/>
 
                 </Grid>
-                <ActivityIndicator></ActivityIndicator>
+                
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                    VerticalOptions="CenterAndExpand">                    
+                </ActivityIndicator>
+                
                 <StackLayout 
+                    VerticalOptions="CenterAndExpand"
                     Orientation="Horizontal">
                     <Label 
-                    HorizontalOptions="StartAndExpand"
-                    VerticalOptions="Center"
-                    Text="Remember on the device"></Label>
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        Text="Remember on the device">                        
+                    </Label>
                     <Switch
-                    HorizontalOptions="End"></Switch>
+                        IsToggled="{Binding IsRemembered, Mode=TwoWay}"
+                        HorizontalOptions="End">
+                        
+                    </Switch>
                 </StackLayout>
                 <Label
                     HorizontalOptions="Center"
+                    TextColor="Blue"
                     Text="Forgot your password"></Label>
-                <StackLayout>
+                <StackLayout
+                    VerticalOptions="CenterAndExpand"
+                    Orientation="Horizontal">
                     <Button
-                    BackgroundColor="Navy"
-                    BorderRadius="23"
-                    HeightRequest="46"
-                    TextColor="White"
-                    Text="Login"></Button>
+                        BackgroundColor="Navy"
+                        BorderRadius="23"
+                        Command="{Binding LoginCommand}"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="46"                        
+                        TextColor="White"
+                        Text="Login"></Button>
                     <Button
-                    BackgroundColor="Purple"
-                    HeightRequest="46"
-                    BorderRadius="23"
-                    TextColor="White"
-                    Text="Register"></Button>
+                        BackgroundColor="Purple"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="46"
+                        BorderRadius="23"
+                        Command="{Binding RegisterCommand}"
+                        TextColor="White"
+                        Text="Register"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>        

@@ -8,11 +8,16 @@ using Xamarin.Forms;
 
 namespace Cesar_xamarin.ViewModels
 {
-    public class MainViewModel : ContentPage
+    public class MainViewModel 
     {
+        public LoginVIewModel Login
+        {
+            get;
+            set;
+        }
         public MainViewModel()
         {
-            
+            this.Login = new LoginVIewModel();
         }
     }
 }
