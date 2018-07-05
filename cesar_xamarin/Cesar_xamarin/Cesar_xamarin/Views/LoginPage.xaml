@@ -40,7 +40,7 @@
                     <Entry
                         Grid.Row="1"
                         Grid.Column="1"
-                        Text="{Binding password, Mode=TwoWay}"
+                        Text="{Binding Password, Mode=TwoWay}"
                         IsPassword="True"
                         Placeholder="Enter your password..."/>
 
@@ -76,6 +76,7 @@
                         BackgroundColor="Navy"
                         BorderRadius="23"
                         Command="{Binding LoginCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         HorizontalOptions="FillAndExpand"
                         HeightRequest="46"                        
                         TextColor="White"
@@ -86,6 +87,7 @@
                         HeightRequest="46"
                         BorderRadius="23"
                         Command="{Binding RegisterCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         TextColor="White"
                         Text="Register"></Button>
                 </StackLayout>
