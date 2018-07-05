@@ -81,6 +81,9 @@ namespace Cesar_xamarin.ViewModels
             this.IsRuning = true;
             this.IsEnabled = false;
 
+            //https://www.youtube.com/watch?v=JIFT4GY1qFg
+            // part 9 tiempo: 0:0 inicia desde cero 
+
             if (this.Email != "cessar_4@hotmail.com" || this.Password != "102")
             {
                 this.IsRuning = false;
