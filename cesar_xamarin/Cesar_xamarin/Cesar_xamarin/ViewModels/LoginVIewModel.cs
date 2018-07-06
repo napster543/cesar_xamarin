@@ -1,22 +1,25 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
+﻿
 
 namespace Cesar_xamarin.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Reflection.Emit;
+    using System.Text;
+    using System.Windows.Input;
+
+    using Views;
+    using Xamarin.Forms;
     public class LoginVIewModel : BaseViewModel
     {
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
         #region Attribes
-        
+        private string email;
         private string password;
         private bool isRuning;
         private bool isEnabled;
@@ -25,8 +28,8 @@ namespace Cesar_xamarin.ViewModels
 
         public string Email
         {
-            get;
-            set;
+            get { return this.email; }
+            set { SetValue(ref this.email, value); }
         }
         public string Password
         {
@@ -82,7 +85,7 @@ namespace Cesar_xamarin.ViewModels
             this.IsEnabled = false;
 
             //https://www.youtube.com/watch?v=JIFT4GY1qFg
-            // part 9 tiempo: 0:0 inicia desde cero 
+            //part 9 tiempo: 0:0 inicia desde cero 
 
             if (this.Email != "cessar_4@hotmail.com" || this.Password != "102")
             {
@@ -99,12 +102,11 @@ namespace Cesar_xamarin.ViewModels
 
                 this.IsRuning = false;
                 this.IsEnabled = true;
-                await Application.Current.MainPage.DisplayAlert(
-                "Ok",
-                "Excelent Yeah!!!",
-                "Aceptar");
-                return;
-            
+            this.Email = string.Empty;
+            this.Password = string.Empty;
+
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
 
         
@@ -112,6 +114,11 @@ namespace Cesar_xamarin.ViewModels
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+            this.Email = "cessar_4@hotmail.com";
+            this.Password = "102";
+            // te muestra todos los paises
+            //https://restcountries.eu/rest/v2/all
+
         }
     }
 }
