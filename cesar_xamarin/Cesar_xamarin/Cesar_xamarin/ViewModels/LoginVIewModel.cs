@@ -16,7 +16,7 @@ namespace Cesar_xamarin.ViewModels
     public class LoginVIewModel : BaseViewModel
     {
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
+       // public event PropertyChangedEventHandler PropertyChanged;
         #endregion
         #region Attribes
         private string email;
