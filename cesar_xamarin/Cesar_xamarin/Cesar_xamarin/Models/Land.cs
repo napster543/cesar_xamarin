@@ -11,7 +11,7 @@ namespace Cesar_xamarin.Models
         public string Name { get; set; }
 
         [JsonProperty(PropertyName = "topLevelDomain")]
-        public List<string> topLevelDomain { get; set; }
+        public List<string> TopLevelDomain { get; set; }
 
         [JsonProperty(PropertyName = "alpha2Code")]
         public string Alpha2Code { get; set; }
