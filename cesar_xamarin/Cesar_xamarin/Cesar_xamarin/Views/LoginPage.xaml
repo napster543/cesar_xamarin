@@ -86,7 +86,7 @@
                         HorizontalOptions="FillAndExpand"
                         HeightRequest="46"
                         BorderRadius="23"
-                        Command="{Binding RegisterCommand}"
+                        
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         TextColor="White"
                         Text="Register"></Button>

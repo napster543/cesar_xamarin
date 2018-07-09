@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cesar_xamarin.Views.LandsPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Lands">
+             Title="Landss">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Lands}"
@@ -12,7 +12,7 @@
             <ListView                 
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
                 ItemsSource="{Binding Lands}"                
                 RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
@@ -26,15 +26,15 @@
                             
                                     <StackLayout 
                                         Grid.Column="0"
-                                        VerticalOptions="Center">
+                                        >
                                         <Label 
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
-                                            Text="{Binding Name}"
+                                            Text="{Binding Alpha2Code}"
                                             TextColor="Black">
                                         </Label>
                                         <Label 
-                                            Text="{Binding Capital}"
+                                            Text="{Binding Area}"
                                             TextColor="Black">
                                         </Label>
                                     </StackLayout>
@@ -43,8 +43,7 @@
                                         HorizontalOptions="End" 
                                         Source="ic_launcher">
                                     </Image>
-                                </Grid>
-                            
+                                </Grid>                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

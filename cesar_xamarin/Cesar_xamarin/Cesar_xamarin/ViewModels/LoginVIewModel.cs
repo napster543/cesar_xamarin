@@ -21,7 +21,7 @@ namespace Cesar_xamarin.ViewModels
         #region Attribes
         private string email;
         private string password;
-        private bool isRuning;
+        private bool isRunning;
         private bool isEnabled;
 
         #endregion
@@ -36,10 +36,10 @@ namespace Cesar_xamarin.ViewModels
             get { return this.password; }
             set { SetValue(ref this.password, value); }
         }
-        public bool IsRuning
+        public bool IsRunning
         {
-            get { return this.isRuning; }
-            set { SetValue(ref this.isRuning, value); }
+            get { return this.isRunning; }
+            set { SetValue(ref this.isRunning, value); }
         }
         public bool IsRemembered
         {
@@ -64,6 +64,7 @@ namespace Cesar_xamarin.ViewModels
 
         private async void Login()
         {
+            this.IsRunning = true;
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -81,7 +82,7 @@ namespace Cesar_xamarin.ViewModels
                     "Aceptar");
                 return;
             }
-            this.IsRuning = true;
+            
             this.IsEnabled = false;
 
             //https://www.youtube.com/watch?v=JIFT4GY1qFg
@@ -89,7 +90,7 @@ namespace Cesar_xamarin.ViewModels
 
             if (this.Email != "cessar_4@hotmail.com" || this.Password != "102")
             {
-                this.IsRuning = false;
+                this.IsRunning = false;
                 this.IsEnabled= true;
                 await Application.Current.MainPage.DisplayAlert(
                 "Error",
@@ -100,19 +101,21 @@ namespace Cesar_xamarin.ViewModels
             }
             
 
-                this.IsRuning = false;
+                this.IsRunning = false;
                 this.IsEnabled = true;
-            this.Email = string.Empty;
-            this.Password = string.Empty;
+            
 
             MainViewModel.GetInstance().Lands = new LandsViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+            this.Email = string.Empty;
+            this.Password = string.Empty;
         }
 
         
         public LoginVIewModel()
         {
             this.IsRemembered = true;
+            this.IsRunning = false;
             this.IsEnabled = true;
             this.Email = "cessar_4@hotmail.com";
             this.Password = "102";

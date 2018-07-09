@@ -6,7 +6,7 @@ namespace Cesar_xamarin.ViewModels
     using System.Collections.ObjectModel;
     using Services;
     using Xamarin.Forms;
-    using System.Windows.Input;
+    using System.Windows.Input;    
     using GalaSoft.MvvmLight.Command;
 
     public class LandsViewModel : BaseViewModel
@@ -41,7 +41,7 @@ namespace Cesar_xamarin.ViewModels
         #region Method
         public async void  LoadLands()
         {
-            this.IsRefreshing = false;
+            this.IsRefreshing = true;
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
             {
@@ -58,19 +58,22 @@ namespace Cesar_xamarin.ViewModels
                 "/rest",
                 "/v2/all");
 
-            if (response.IsSuccess) {
+            if (!response.IsSuccess)
+            {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Message,
                     "Accept");
-               // await Application.Current.MainPage.Navigation.PopAsync();
+                 await Application.Current.MainPage.Navigation.PopAsync();
+                
                 return;
             } 
-
-            var list = (List<Land>)response.Result;
-            this.Lands = new ObservableCollection<Land>(list);
-            this.IsRefreshing = false;
+                var list = (List<Land>)response.Result;
+                this.Lands = new  ObservableCollection<Land>(list);
+                
+                this.IsRefreshing = false;
+            
         }
         #endregion
 
