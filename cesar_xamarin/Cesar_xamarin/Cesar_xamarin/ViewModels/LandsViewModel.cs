@@ -9,6 +9,12 @@ namespace Cesar_xamarin.ViewModels
     using System.Windows.Input;    
     using GalaSoft.MvvmLight.Command;
 
+    
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class LandsViewModel : BaseViewModel
     {
         #region services
@@ -17,6 +23,7 @@ namespace Cesar_xamarin.ViewModels
         #region Attributes
         private ObservableCollection<Land> lands;
         private bool isRefreshing;
+        private List<Land> landList;
         #endregion  
         #region Property
         public ObservableCollection<Land> Lands
@@ -39,7 +46,7 @@ namespace Cesar_xamarin.ViewModels
         #endregion
 
         #region Method
-        public async void  LoadLands()
+        private async void  LoadLands()
         {
             this.IsRefreshing = true;
             var connection = await this.apiService.CheckConnection();
@@ -69,16 +76,16 @@ namespace Cesar_xamarin.ViewModels
                 
                 return;
             } 
-                var list = (List<Land>)response.Result;
-                this.Lands = new  ObservableCollection<Land>(list);
-                
-                this.IsRefreshing = false;
+                this.landList = (List<Land>)response.Result;
+                this.Lands = new  ObservableCollection<Land>(this.landList);
+           
+            this.IsRefreshing = false;
             
         }
         #endregion
 
         #region Commands
-        public ICommand RefreshCommand
+        public ICommand RefreshListCommand
         {
             get
             {
