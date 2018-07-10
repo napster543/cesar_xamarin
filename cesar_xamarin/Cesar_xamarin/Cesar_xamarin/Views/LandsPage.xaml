@@ -30,11 +30,11 @@
                                         <Label 
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
-                                            Text="{Binding Alpha2Code}"
+                                            Text="{Binding Name}"
                                             TextColor="Black">
                                         </Label>
                                         <Label 
-                                            Text="{Binding Area}"
+                                            Text="{Binding Capital}"
                                             TextColor="Black">
                                         </Label>
                                     </StackLayout>

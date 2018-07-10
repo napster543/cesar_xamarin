@@ -25,6 +25,7 @@ namespace Cesar_xamarin.ViewModels
         #region Constructor
         public MainViewModel()
         {
+            instance = this;
             this.Login = new LoginVIewModel();
         }
         #endregion
