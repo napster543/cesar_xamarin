@@ -9,24 +9,16 @@
             BindingContext="{Binding Lands}"
             Padding="5">
             
-            <ListView                 
+            <ListView                                
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
-                ItemsSource="{Binding Lands}"                
-                RefreshCommand="{Binding RefreshCommand}">
+                ItemsSource="{Binding Lands}"         
+                SeparatorVisibility="Default"
+                RefreshCommand="{Binding RefreshListCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>                            
-                                <Grid>
-                                    <Grid.ColumnDefinitions>                
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                            
-                                    <StackLayout 
-                                        Grid.Column="0"
-                                        >
+                        <ViewCell>                                                            
                                         <Label 
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
@@ -37,13 +29,7 @@
                                             Text="{Binding Capital}"
                                             TextColor="Black">
                                         </Label>
-                                    </StackLayout>
-                                    <Image 
-                                        Grid.Column="1"
-                                        HorizontalOptions="End" 
-                                        Source="ic_launcher">
-                                    </Image>
-                                </Grid>                            
+                                
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
