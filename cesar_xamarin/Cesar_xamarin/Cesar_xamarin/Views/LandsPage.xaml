@@ -18,18 +18,33 @@
                 RefreshCommand="{Binding RefreshListCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>                                                            
-                                        <Label 
-                                            FontAttributes="Bold"
-                                            FontSize="Medium" 
-                                            Text="{Binding Name}"
-                                            TextColor="Black">
-                                        </Label>
-                                        <Label 
-                                            Text="{Binding Capital}"
-                                            TextColor="Black">
-                                        </Label>
-                                
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout
+                                    Grid.Column="0"
+                                    VerticalOptions="Center">
+                                    <Label 
+                                        FontAttributes="Bold"
+                                        FontSize="Medium" 
+                                        Text="{Binding Name}"
+                                        TextColor="Black">
+                                    </Label>
+                                    <Label 
+                                        Text="{Binding Capital}"
+                                        TextColor="Black">
+                                    </Label>
+                                </StackLayout>
+                                <Image 
+                                    Grid.Column="1"
+                                    HorizontalOptions="End"
+                                    Source="ic_launcher">
+                                    
+                                </Image>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
