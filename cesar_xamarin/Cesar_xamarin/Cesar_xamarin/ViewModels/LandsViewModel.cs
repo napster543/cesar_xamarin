@@ -24,6 +24,7 @@ namespace Cesar_xamarin.ViewModels
         private ObservableCollection<Land> lands;
         private bool isRefreshing;
         private List<Land> landList;
+        private string filter;
         #endregion  
         #region Property
         public ObservableCollection<Land> Lands
@@ -36,8 +37,17 @@ namespace Cesar_xamarin.ViewModels
             get { return this.isRefreshing; }
             set { SetValue(ref this.isRefreshing, value); }
         }
+        public string Filter
+        {
+            get { return this.filter; }
+            set
+            {
+                SetValue(ref this.filter, value);
+                this.Search();
+            }
+        }
         #endregion
-            #region constructor
+        #region constructor
         public LandsViewModel()
         {
             this.apiService = new ApiService();
@@ -92,6 +102,32 @@ namespace Cesar_xamarin.ViewModels
                 return new RelayCommand(LoadLands);
             }
         }
+        public ICommand SearchCommand
+        {
+            get
+            { 
+                return new RelayCommand(Search);
+            }
+        }
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(this.Filter))
+            {
+                this.Lands = new ObservableCollection<Land>(
+                    this.landList);
+            }
+            else
+            {
+                //https://www.youtube.com/watch?v=Zo4N-i2CsfA&list=PLuEZQoW9bRnSVLpBHr6fzrPnzaunFKwfe&index=14
+                this.Lands = new ObservableCollection<Land>(
+                    this.landList.Where(
+                        l => l.Name.ToLower().Contains(this.Filter.ToLower()) ||
+                             l.Capital.ToLower().Contains(this.Filter.ToLower())
+                    )
+                );
+            }
+        }
+    
         #endregion
 
     }
