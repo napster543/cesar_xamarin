@@ -21,6 +21,7 @@ namespace Cesar_xamarin.ViewModels
         private ApiService apiService;
         #endregion
         #region Attributes
+        
         private ObservableCollection<Land> lands;
         private bool isRefreshing;
         private List<Land> landList;

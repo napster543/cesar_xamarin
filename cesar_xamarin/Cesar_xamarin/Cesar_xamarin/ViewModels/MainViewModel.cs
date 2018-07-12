@@ -22,6 +22,13 @@ namespace Cesar_xamarin.ViewModels
             set;
 
         }
+        public LandsViewModel Land
+        {
+
+            get;
+            set;
+
+        }
         #region Constructor
         public MainViewModel()
         {

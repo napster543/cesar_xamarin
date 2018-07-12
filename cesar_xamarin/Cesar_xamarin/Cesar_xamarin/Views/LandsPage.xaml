@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Lands}"
-            Padding="5">
+            >
 
             <SearchBar 
                 Text="{Binding Filter, Mode=TwoWay}"
@@ -16,7 +16,8 @@
                 
             </SearchBar>
             
-            <ListView                                
+            <ListView                
+                BackgroundColor="Silver"
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
@@ -26,32 +27,40 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout
-                                    Grid.Column="0"
-                                    VerticalOptions="Center">
-                                    <Label 
-                                        FontAttributes="Bold"
-                                        FontSize="Medium" 
-                                        Text="{Binding Name}"
-                                        TextColor="Black">
-                                    </Label>
-                                    <Label 
-                                        Text="{Binding Capital}"
-                                        TextColor="Black">
-                                    </Label>
-                                </StackLayout>
-                                <Image 
-                                    Grid.Column="1"
-                                    HorizontalOptions="End"
-                                    Source="ic_launcher">
-                                    
-                                </Image>
-                            </Grid>
+                            <Frame                                
+                                BackgroundColor="White"                      
+                                HasShadow="True"
+                                Margin="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="Binding SelectLandCommand"></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                        Grid.Column="0"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding Name}"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label 
+                                            Text="{Binding Capital}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <Image 
+                                        Grid.Column="1"
+                                        HorizontalOptions="End"
+                                        Source="ic_launcher">
+
+                                    </Image>
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

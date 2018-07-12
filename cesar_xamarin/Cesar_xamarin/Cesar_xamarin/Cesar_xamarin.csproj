@@ -53,8 +53,12 @@
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\LandsViewModel.cs" />
+    <Compile Include="ViewModels\LandViewModel.cs" />
     <Compile Include="ViewModels\LoginVIewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\LandPage.xaml.cs">
+      <DependentUpon>LandPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LandsPage.xaml.cs">
       <DependentUpon>LandsPage.xaml</DependentUpon>
     </Compile>
@@ -101,7 +105,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LandPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
