@@ -22,17 +22,18 @@
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
                 ItemsSource="{Binding Lands}"         
-                SeparatorVisibility="Default"
+                SeparatorVisibility="None"
                 RefreshCommand="{Binding RefreshListCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame                                
+                            <Frame     
+                                
                                 BackgroundColor="White"                      
                                 HasShadow="True"
                                 Margin="5">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="Binding SelectLandCommand"></TapGestureRecognizer>
+                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>

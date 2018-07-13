@@ -1,14 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
+﻿
 
 namespace Cesar_xamarin.ViewModels
 {
-	public class LandViewModel 
-	{
-		
-	}
+    using Models;
+    public class LandViewModel
+    {
+        #region Property
+        public Land Land
+        {
+            get;
+            set;
+        }         
+        #endregion
+
+        #region Constructor
+        public LandViewModel(Land land)
+        {
+            this.Land = land;
+        } 
+        #endregion
+    }
 }

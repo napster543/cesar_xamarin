@@ -5,10 +5,21 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Land">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        
+            <ScrollView 
+                BindingContext="{Binding Land}">
+                <StackLayout 
+                    Padding="5">
+                    <Label 
+                        Text="{Binding Land.Name}"
+                        TextColor="Black"
+                        HorizontalOptions="Center"
+                        FontAttributes="Bold"
+                        FontSize="Large">
+                        
+                    </Label>
+                </StackLayout>
+            </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

@@ -22,7 +22,7 @@ namespace Cesar_xamarin.ViewModels
             set;
 
         }
-        public LandsViewModel Land
+        public LandViewModel Land
         {
 
             get;

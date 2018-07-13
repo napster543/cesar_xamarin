@@ -91,6 +91,26 @@
                         TextColor="White"
                         Text="Register"></Button>
                 </StackLayout>
+                <StackLayout
+                    VerticalOptions="EndAndExpand"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center">
+                    <Image
+                        WidthRequest="100"
+                        Source="facebook">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LoginFacebookCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image
+                        WidthRequest="100"
+                        Source="twitter">                        
+                    </Image>
+                    <Image
+                        WidthRequest="100"
+                        Source="instagram">
+                    </Image>
+                </StackLayout>
             </StackLayout>
         </ScrollView>        
     </ContentPage.Content>
