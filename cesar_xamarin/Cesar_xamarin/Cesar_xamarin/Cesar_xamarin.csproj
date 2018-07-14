@@ -57,14 +57,29 @@
     <Compile Include="ViewModels\LandViewModel.cs" />
     <Compile Include="ViewModels\LoginVIewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\BordersPage.xaml.cs">
+      <DependentUpon>BordersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CurrenciesPage.xaml.cs">
+      <DependentUpon>CurrenciesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LandPage.xaml.cs">
       <DependentUpon>LandPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LandsPage.xaml.cs">
       <DependentUpon>LandsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LandTabbedPage.xaml.cs">
+      <DependentUpon>LandTabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LanguagesPage.xaml.cs">
+      <DependentUpon>LanguagesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TranslationsPage.xaml.cs">
+      <DependentUpon>TranslationsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +135,36 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LandsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LandTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\BordersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CurrenciesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TranslationsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LanguagesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
