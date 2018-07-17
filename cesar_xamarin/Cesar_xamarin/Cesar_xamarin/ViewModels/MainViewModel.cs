@@ -8,8 +8,16 @@ using Xamarin.Forms;
 
 namespace Cesar_xamarin.ViewModels
 {
+    using Models;
     public class MainViewModel 
     {
+        #region Propertys
+        public List<Land> LandsList
+        {
+            get;
+            set;
+        }
+        #endregion
         public LoginVIewModel Login
         {
             get;
