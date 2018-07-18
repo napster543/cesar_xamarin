@@ -21,7 +21,7 @@ namespace Cesar_xamarin.ViewModels
         private ObservableCollection<LandItemViewModel> lands;
         private bool isRefreshing;        
         private string filter;
-        private List<Land> landsList;
+        //private List<Land> landsList;
         #endregion  
         #region Property
         public ObservableCollection<LandItemViewModel> Lands

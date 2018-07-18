@@ -4,13 +4,14 @@ namespace Cesar_xamarin.ViewModels
 {
     using Models;
     using System.Linq;
-    using System;
+    
     using System.Collections.ObjectModel;
 
     public class LandViewModel : BaseViewModel
     {
         #region Attributes
         private ObservableCollection<Border> borders;
+        private ObservableCollection<Currency> currencies;
         #endregion
 
         #region Property
@@ -24,6 +25,11 @@ namespace Cesar_xamarin.ViewModels
             get { return this.borders; }
             set { SetValue(ref this.borders, value); }
         }
+        public ObservableCollection<Currency> Currencies
+        {
+            get { return this.currencies; }
+            set { SetValue(ref this.currencies, value); }
+        }
         #endregion
 
         #region Constructor
@@ -31,6 +37,7 @@ namespace Cesar_xamarin.ViewModels
         {
             this.Land = land;
             this.LoadBorders();
+            this.Currencies = new ObservableCollection<Currency>(this.Land.Currencies);
         }
 
 

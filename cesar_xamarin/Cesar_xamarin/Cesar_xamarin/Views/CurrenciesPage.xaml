@@ -6,12 +6,57 @@
              Icon="ic_action_monetization_on"
              Title="Currencies">
     <ContentPage.Content>
-        <StackLayout>
+
+
+            <StackLayout
+            Padding="10"
+            BindingContext="{Binding Land}">
+
             <Label
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"
                 Text="Currencies">
             </Label>
-        </StackLayout>
+
+            <ListView
+                ItemsSource="{Binding Currencies}"
+                HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                    <Label 
+                                            Grid.Column="0"
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding Code}"
+                                            TextColor="Black">
+                                    </Label>
+                                    <Label 
+                                            Grid.Column="1"
+                                            Text="{Binding Name}"
+                                            TextColor="Black">
+                                    </Label>
+                                <Label 
+                                            Grid.Column="2"
+                                            Text="{Binding Symbol}"
+                                            TextColor="Black">
+                                </Label>
+
+                            </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
