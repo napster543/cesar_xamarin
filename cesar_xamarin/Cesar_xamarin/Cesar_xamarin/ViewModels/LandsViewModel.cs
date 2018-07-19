@@ -17,7 +17,7 @@ namespace Cesar_xamarin.ViewModels
         private ApiService apiService;
         #endregion
         #region Attributes
-        
+        public float CornerRadius { get; set; }
         private ObservableCollection<LandItemViewModel> lands;
         private bool isRefreshing;        
         private string filter;
